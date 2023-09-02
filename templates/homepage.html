@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <div>
+        <h2>Input a query, select the retailer, and hit the search button to download a csv containing the product name, current price, and total discount</h2>
+    </div>
+    <div>
+        <form name="search_form" method="POST">
+            <input type="text" placeholder="Enter search query" name="search_query">
+            <button type="submit">Search</button>
+            <div name="retailers">
+                <input type="radio" name="newegg" value="Newegg"
+                id="newegg" checked/>
+                <label for="newegg">Newegg</label>
+                <input type="radio" name="amazon" value="Amazon"
+                id="amazon" disabled/>
+                <label for="amazon">Amazon</label>
+                <input type="radio" name="can-comp" value="Canada Computers"
+                id="can-comp" disabled/>
+                <label for="can-comp">Canada Computers</label>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
