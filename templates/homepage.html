@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+          href="../static/styles/main.css"/>
     <title>Homepage</title>
 </head>
 <body>
-    <div>
-        <h2>Input a query, select the retailer, and hit the search button to download a csv containing the product name, current price, and total discount</h2>
+    <div class="title-textbox">
+        <h1 class="titlename">E-Commerce Product Data Scraper</h1>
+        <h3 class="subtext">Input a search query and hit search to download a CSV that contains the product name,
+             corresponding price, and discount percentage if the product is on sale</h3>
+        <h3 class="subtext">Currently supports scraping product data from Newegg Canada</h3>
     </div>
-    <div>
+    <div class="main-content">
         <form name="search_form" method="POST">
-            <input type="text" placeholder="Enter search query" name="search_query">
-            <button type="submit">Search</button>
-            <div name="retailers">
+            <div class="search-bar">
+                <input type="text" placeholder="Enter search query" 
+                name="search_query" class="search-text">
+                <button type="submit" class="search-btn">Search</button>
+            </div>
+            <div class="retailers", name="retailers">
                 <input type="radio" name="newegg" value="Newegg"
                 id="newegg" checked/>
                 <label for="newegg">Newegg</label>
