@@ -70,8 +70,6 @@ class NeweggScraper:
             df = self.scrape_page(paginated_soup)
             newegg_df = pd.concat([newegg_df,df],axis=0)
             time.sleep(3)
-
-        newegg_df['Current Price'] = newegg_df['Current Price'].str.replace(r'[^0-9 \.]+', '', regex=True)
         
         return newegg_df
 
