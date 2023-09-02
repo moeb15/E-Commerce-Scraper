@@ -13,8 +13,11 @@ class NeweggScraper:
         self.BASE_URL = BASE_URL
         self.query = query
         self.first_page = self.build_soup(self.BASE_URL,self.query,1)
-        self.page_max = int(self.first_page.find('span',{'class':'list-tool-pagination-text'})\
-                            .get_text().split("/")[1])
+        try:
+            self.page_max = int(self.first_page.find('span',{'class':'list-tool-pagination-text'})\
+                                .get_text().split("/")[1])
+        except:
+            self.page_max = 1
 
     def build_soup(self, BASE_URL,query,page):
         URL = BASE_URL + quote(query) + f'&page={page}'
@@ -26,7 +29,14 @@ class NeweggScraper:
     
     def scrape_page(self,soup):
         res = soup.find('div',{'class':'list-wrap'})
-        items = res.find_all('div',{'class':'item-cell'})
+        try:
+            items = res.find_all('div',{'class':'item-cell'})
+        except:
+            items = None
+        if items == None:
+            return pd.DataFrame({'Product Name':[],
+                            'Current Price':[],
+                            'Sale Percentage':[]})
 
         prod_names = []
         prod_cur_price = []
